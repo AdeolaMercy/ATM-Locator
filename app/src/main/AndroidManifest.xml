@@ -5,15 +5,18 @@
     <uses-sdk
         android:minSdkVersion="7"
         android:targetSdkVersion="17" />
+
     <uses-library android:name="com.google.android.maps" />
+
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
         <activity
-            android:name="com.atbtechsoft.adewumi.atmlocator.MyActivity"
+            android:name=".MyActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,16 +24,56 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name="com.atbtechsoft.adewumi.atmlocator.DisplayMessageActivity"
-                  android:label="@string/app_name"
-                  android:parentActivityName=".MyActivity">
-
+        <!--<activity
+            android:name=".DisplayMessageActivity"
+            android:label="@string/app_name"
+            android:parentActivityName=".MyActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.atbtechsoft.adewumi.atmlocator.MyActivity"/>
-                  </activity>
+                android:value="com.atbtechsoft.adewumi.atmlocator.MyActivity" />
+        </activity>-->
+        <!--<activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login"
+            android:windowSoftInputMode="adjustResize|stateHidden" >
+
+        </activity>-->
+
+        <activity
+            android:name=".SigninActivity"
+            android:label="@string/action_sign_in">
+
+
+        </activity>
+
+        <activity android:name=".spinner"
+            android:label="practising"></activity>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <!--<<activity android:name=".SearchableActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+            meta-data android:name="android.app.searchable"
+                android:resource="@xml/searchable"/>
+        </activity>-->
 
     </application>
+
+    <!--
+     To retrieve OAuth 2.0 tokens or invalidate tokens to disconnect a user. This disconnect
+     option is required to comply with the Google+ Sign-In developer policies
+    -->
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+
+    <!-- To retrieve the account name (email) as part of sign-in: -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
 </manifest>

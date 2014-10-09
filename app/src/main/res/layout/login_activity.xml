@@ -41,6 +41,7 @@
         android:onClick="Sign up"/>
 
     <TextView
+        android:id="@+id/text_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/text2"

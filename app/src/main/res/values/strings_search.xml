@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="banks_array">
+        <item>GTB</item>
+        <item>First Bank</item>
+        <item>Access</item>
+        <item>Zenith</item>
+        <item>Sterling</item>
+        <item>Skye</item>
+    </string-array>
+
+    <string-array name="location_array">
+        <item>Magodo Brooks</item>
+        <item>Ikeja</item>
+        <item>Victoria Island</item>
+        <item>Yaba</item>
+        <item>Palmgroove</item>
+        <item>Ketu</item>
+    </string-array>
+</resources>

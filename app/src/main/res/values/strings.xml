@@ -5,5 +5,33 @@
     <string name="action_settings">Settings</string>
     <string name="action_search">Search</string>
     <string name="text1">ATMs nearby</string>
+    <string name="sign_up">Sign up</string>
+    <string name="email">Type in your email</string>
+    <string name="password">Type in password</string>
+    <string name="button_text">Sign up</string>
+    <string name="text2">Sign in using</string>
+    <string name="button_search">Search</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_tick">Add</string>
+    <string name="test_updating_a_view">Test updating a view</string>
 
+    <string name="list">
+        <item>GTB</item>
+        <item>GTB</item>
+        <item>First Bank</item>
+        <item>Access</item>
+        <item>Zenith</item>
+        <item>Sterling</item>
+        <item>Skye</item>
+    </string>
+    <string-array name="items">
+        <item>Sign up</item>
+        <item>Notification</item>
+        <item>Suggest ATMs</item>
+        <item>Reviews</item>
+        <item>Feedback</item>
+    </string-array>
+
+    <!--<string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>-->
 </resources>

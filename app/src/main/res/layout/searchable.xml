@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--creating searchable configuration-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:label="@string/app_name"
+
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+   <!--<ActionMenuItemView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/button_search"/>-->
+
+        <Spinner
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/search_spinner"></Spinner>
+</LinearLayout>

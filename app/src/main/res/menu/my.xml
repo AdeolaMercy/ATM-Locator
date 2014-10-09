@@ -14,5 +14,8 @@
         android:icon="@drawable/ic_action_search"
         android:title="@string/action_search"
         tools:showAsAction="ifRoom"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="ifRoom"
+        android:onClick="sendMessage"
+        />
+
 </menu>
