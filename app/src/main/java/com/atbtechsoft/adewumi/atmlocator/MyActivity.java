@@ -26,12 +26,13 @@ import android.R.array;
 
 public class MyActivity extends ActionBarActivity {
 
-        private String[] listMenu;
-        private DrawerLayout mDrawerLayout;
-        private ListView mDrawerList;
+    private String[] listMenu;
+    private DrawerLayout mDrawerLayout;
+    private ListView mDrawerList;
     private CharSequence mTitle;
-        private ActionBarDrawerToggle mDrawerToggle;
+    private ActionBarDrawerToggle mDrawerToggle;
     private Switch button;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,8 +41,6 @@ public class MyActivity extends ActionBarActivity {
         getActionBar().setHomeButtonEnabled(true);
 
         button = (Switch) findViewById(R.id.switch1);
-
-
         button.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -52,10 +51,6 @@ public class MyActivity extends ActionBarActivity {
                 }
             }
         });
-
-
-
-
 
         listMenu = getResources().getStringArray(R.array.items);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -175,6 +170,9 @@ public class MyActivity extends ActionBarActivity {
         this.adapter2 = adapter2;
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter2);
+    }
+
+    public static class PlanetFragment extends Fragment {
     }
 }
 
