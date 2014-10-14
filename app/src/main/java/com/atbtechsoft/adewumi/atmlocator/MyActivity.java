@@ -52,13 +52,6 @@ public class MyActivity extends ActionBarActivity {
             }
         });
 
-        listMenu = getResources().getStringArray(R.array.items);
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerList = (ListView) findViewById(R.id.left_drawer);
-        //set adapter for the list view
-        mDrawerList.setAdapter(new ArrayAdapter<String>(this,R.layout.drawer_list_item, listMenu));
-        //set list's click listener
-        mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
     }
 
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
@@ -91,18 +84,13 @@ public class MyActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        /*getMenuInflater().inflate(R.menu.my, menu);
-        return true;*/
+        /*super.onCreateOptionsMenu(menu);*/
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.my,menu);
-        return super.onCreateOptionsMenu(menu);
+        return true;
     }
 
         //called when the search icon is clicked
-    public void sendMessage(View view) {
-
-    }
-
 
     //using OnCheckedChangeListener
    /* ToggleButton toggle = (ToggleButton) findViewById(R.id.togglebutton);
@@ -118,6 +106,12 @@ public class MyActivity extends ActionBarActivity {
     });*/
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent = new Intent(this, NavigationDrawer.class);
+        //if this activity will be invoked in another project
+        /*startActivity(new Intent(this,"com.atbtechsoft.adewumi.atmlocator.NavigationDrawer"));*/
+        startActivity(intent);
+        return true;
+    }
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
@@ -127,7 +121,7 @@ public class MyActivity extends ActionBarActivity {
         if (id == R.id.action_settings) {
             return true;*/
 
-        switch(item.getItemId()) {
+        /*switch(item.getItemId()) {
             case R.id.home:
                 Intent intent = new Intent(this, MyActivity.class);
                 startActivity(intent);
@@ -143,7 +137,7 @@ public class MyActivity extends ActionBarActivity {
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
-        }}
+        }}*/
 
 
 
@@ -154,7 +148,7 @@ public class MyActivity extends ActionBarActivity {
 
    }
 
-    Spinner spinner = (Spinner)findViewById(R.id.spinner);
+    /*Spinner spinner = (Spinner)findViewById(R.id.spinner);
     ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource
             (this,R.array.banks_array,android.R.layout.simple_spinner_item);
     ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource
@@ -172,7 +166,9 @@ public class MyActivity extends ActionBarActivity {
         spinner.setAdapter(adapter2);
     }
 
+   */
     public static class PlanetFragment extends Fragment {
+        public static String ARG_PLANET_NUMBER;
     }
 }
 

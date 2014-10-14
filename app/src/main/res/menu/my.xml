@@ -15,7 +15,7 @@
         android:title="@string/action_search"
         tools:showAsAction="ifRoom"
         app:showAsAction="ifRoom"
-        android:onClick="sendMessage"
+
         />
 
 </menu>
