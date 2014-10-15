@@ -106,11 +106,23 @@ public class MyActivity extends ActionBarActivity {
     });*/
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent intent = new Intent(this, NavigationDrawer.class);
         //if this activity will be invoked in another project
         /*startActivity(new Intent(this,"com.atbtechsoft.adewumi.atmlocator.NavigationDrawer"));*/
+
+        int id;
+        id = item.getItemId();
+        if (id== R.id.action_search) {
+            Toast.makeText(getApplicationContext(),"Search", Toast.LENGTH_LONG).show();
+            return true;
+        }
+        else if (id==R.id.action_settings) {
+            Intent settingsIntent = new Intent(this,Setting.class);
+            startActivity(settingsIntent);
+        }
+        /*Intent intent = new Intent(this, NavigationDrawer.class);
         startActivity(intent);
-        return true;
+        return true;*/
+        return super.onOptionsItemSelected(item);
     }
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
