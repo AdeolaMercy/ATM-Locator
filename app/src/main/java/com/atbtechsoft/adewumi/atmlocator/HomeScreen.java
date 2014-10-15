@@ -1,6 +1,5 @@
 package com.atbtechsoft.adewumi.atmlocator;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -8,35 +7,29 @@ import android.support.v4.app.Fragment;
 
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.ListView;
-import android.widget.Spinner;
 import android.widget.Switch;
-import android.widget.TextView;
-import android.widget.ToggleButton;
 import android.widget.Toast;
-import android.R.array;
 
-public class MyActivity extends ActionBarActivity {
+public class HomeScreen extends ActionBarActivity {
 
     private String[] listMenu;
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
     private CharSequence mTitle;
-    private ActionBarDrawerToggle mDrawerToggle;
+    private ActionBarDrawerToggle actionBarDrawerToggle;
     private Switch button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my);
+        setContentView(R.layout.home);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
 
@@ -86,7 +79,7 @@ public class MyActivity extends ActionBarActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         /*super.onCreateOptionsMenu(menu);*/
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.my,menu);
+        inflater.inflate(R.menu.homemenu,menu);
         return true;
     }
 
@@ -119,9 +112,10 @@ public class MyActivity extends ActionBarActivity {
             Intent settingsIntent = new Intent(this,Setting.class);
             startActivity(settingsIntent);
         }
-        /*Intent intent = new Intent(this, NavigationDrawer.class);
-        startActivity(intent);
-        return true;*/
+        else if(id==R.id.action_aboutUs){
+            Intent aboutIntent = new Intent(this,AboutUs.class);
+            startActivity(aboutIntent);
+        }
         return super.onOptionsItemSelected(item);
     }
         // Handle action bar item clicks here. The action bar will
@@ -134,8 +128,8 @@ public class MyActivity extends ActionBarActivity {
             return true;*/
 
         /*switch(item.getItemId()) {
-            case R.id.home:
-                Intent intent = new Intent(this, MyActivity.class);
+            case R.id.homemenu:
+                Intent intent = new Intent(this, HomeScreen.class);
                 startActivity(intent);
                 finish();
                 return true;

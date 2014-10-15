@@ -16,7 +16,7 @@
         android:label="@string/app_name"
         android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
         <activity
-            android:name=".MyActivity"
+            android:name=".HomeScreen"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,29 +25,31 @@
         </activity>
         <activity android:name=".NavigationDrawer"
                   android:label="@string/ndrawer">
-            <intent-filter>
+            <!--<intent-filter>
                 <action android:name="com.atbtechsoft.adewumi.atmlocator.NavigationDrawer" />
                 <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
+            </intent-filter>-->
 
          </activity>
 
         <!--<activity
             android:name=".DisplayMessageActivity"
             android:label="@string/app_name"
-            android:parentActivityName=".MyActivity" >
+            android:parentActivityName=".HomeScreen" >
             <met.a-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.atbtechsoft.adewumi.atmlocator.MyActivity" />
+                android:value="com.atbtechsoft.adewumi.atmlocator.HomeScreen" />
         </activity>-->
          <activity
-            android:name=".SigninActivity"
+            android:name=".SignUp"
            android:label="@string/action_sign_in">
          </activity>
         <activity android:name=".Setting"
                 android:label="Settings">
 
         </activity>
+        <activity android:name=".AboutUs"
+                  android:label="About Us"></activity>
 
        <!-- <activity android:name=".spinner"
             android:label="practising"></activity>-->
@@ -75,7 +77,7 @@
     <!-- To retrieve the account name (email) as part of sign-in: -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
 
-    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <!-- To auto-complete the email text field in the signup form with the user's emails -->
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 

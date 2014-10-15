@@ -15,7 +15,11 @@
         android:title="@string/action_search"
         tools:showAsAction="ifRoom"
         app:showAsAction="ifRoom"
-
+        />
+    <item
+        android:id="@+id/action_aboutUs"
+        android:title="About Us"
+        app:showAsAction="never"
         />
 
 </menu>

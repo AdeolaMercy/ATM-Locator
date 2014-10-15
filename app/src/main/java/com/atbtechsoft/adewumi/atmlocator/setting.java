@@ -17,10 +17,9 @@ public class Setting extends Activity {
     }
     @Override
         public boolean onOptionsItemSelected(MenuItem item) {
-            Intent settingIntent = new Intent(getApplicationContext(), MyActivity.class);
+        //navigate back to the homescreen
+            Intent settingIntent = new Intent(getApplicationContext(), HomeScreen.class);
             startActivityForResult(settingIntent,0);
             return true;
-
-
     }
 }
