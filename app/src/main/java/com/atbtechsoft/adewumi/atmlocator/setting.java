@@ -17,12 +17,10 @@ public class Setting extends Activity {
     }
     @Override
         public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id==R.id.homeAsUp) {
-            Intent settingIntent = new Intent(this,MyActivity.class);
-            startActivity(settingIntent);
+            Intent settingIntent = new Intent(getApplicationContext(), MyActivity.class);
+            startActivityForResult(settingIntent,0);
             return true;
-        }
-        return super.onOptionsItemSelected(item);
+
+
     }
 }
