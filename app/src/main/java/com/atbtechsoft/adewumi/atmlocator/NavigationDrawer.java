@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.MenuItem;
 import android.view.View;
@@ -45,13 +46,14 @@ public class NavigationDrawer extends Activity {
            actionBarDrawerToggle = new ActionBarDrawerToggle(
              this,
               mDrawerLayout,
-             R.drawable.ic_navdrawer,
+             R.drawable.ic_drawer,
              R.string.drawer_open,
              R.string.drawer_close);
         //set actionBarToggle as the drawer listener
         mDrawerLayout.setDrawerListener(actionBarDrawerToggle);
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
+        mDrawerLayout.setDrawerShadow(R.drawable.abc_item_background_holo_dark, GravityCompat.START);
     }
     @Override
     public void onConfigurationChanged(Configuration newConfig) {

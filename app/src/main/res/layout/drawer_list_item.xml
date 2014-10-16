@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"></LinearLayout>android:paddingStart="14.5sp"
+        android:paddingEnd="14.5sp">-->
 
     <TextView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@android:id/text1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#000"
-        android:textSize="20sp"
+        android:textSize="25sp"
         android:gravity="center_vertical"
         android:paddingStart="14.5sp"
         android:paddingEnd="14.5sp"
-        android:minHeight="35sp"
-        android:text="menu"/>
+        android:minHeight="55sp"/>
 
-</LinearLayout>

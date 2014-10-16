@@ -1,6 +1,7 @@
 package com.atbtechsoft.adewumi.atmlocator;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
@@ -12,6 +13,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.ListView;
 import android.widget.Switch;
@@ -21,7 +23,7 @@ public class HomeScreen extends ActionBarActivity {
 
     private String[] listMenu;
     private DrawerLayout mDrawerLayout;
-    private ListView mDrawerList;
+    private ListView drawerList;
     private CharSequence mTitle;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private Switch button;
@@ -33,7 +35,7 @@ public class HomeScreen extends ActionBarActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
 
-        button = (Switch) findViewById(R.id.switch1);
+        /*button = (Switch) findViewById(R.id.switch1);
         button.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -43,8 +45,32 @@ public class HomeScreen extends ActionBarActivity {
 
                 }
             }
-        });
-
+        });*/
+        listMenu = getResources().getStringArray(R.array.items);
+        drawerList = (ListView) findViewById(R.id.left_drawer);
+        drawerList.setAdapter(new ArrayAdapter<String>(this, R.layout.drawer_list_item, R.id.text1,
+                listMenu));
+        drawerList.setOnItemClickListener(new DrawerItemClickListener());
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(
+                this,
+                mDrawerLayout,
+                R.drawable.ic_navdrawer,
+                R.string.drawer_open,
+                R.string.drawer_close);
+        mDrawerLayout.setDrawerListener(actionBarDrawerToggle);
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getActionBar().setHomeButtonEnabled(true);
+    }
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        actionBarDrawerToggle.onConfigurationChanged(newConfig);
+    }
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        actionBarDrawerToggle.syncState();
     }
 
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
@@ -115,6 +141,9 @@ public class HomeScreen extends ActionBarActivity {
         else if(id==R.id.action_aboutUs){
             Intent aboutIntent = new Intent(this,AboutUs.class);
             startActivity(aboutIntent);
+        }
+        else if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
