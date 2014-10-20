@@ -7,52 +7,48 @@
     android:layout_marginRight="30sp"
     android:layout_marginEnd="30sp">
 
-    <TextView
+    <!--<TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Suggest ATM"
         android:layout_marginTop="20sp"
         android:layout_marginBottom="5sp"
-        android:textSize="30sp" />
+        android:textSize="30sp" />-->
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Thank you for......"
+        android:text="Thank you for suggesting an ATM"
         android:layout_marginTop="20sp"
         android:layout_marginBottom="20sp"
-        android:textSize="15sp" />
+        android:textSize="20sp" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
-        android:hint="Bank's name"
-        android:layout_marginBottom="20sp"
-       />
+        android:hint="Select Bank"
+        android:layout_marginBottom="20sp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
-        android:hint="ATM Location"
-        android:layout_marginBottom="20sp"
-
-        />
+        android:hint="ATM Address"
+        android:layout_marginBottom="20sp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
         android:hint="City"
-        android:layout_marginBottom="20sp"
-       />
+        android:layout_marginBottom="20sp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
-        android:hint="State"
-      />
+        android:hint="Select State"
+        android:layout_marginBottom="20sp"/>
 
 </LinearLayout>

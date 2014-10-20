@@ -17,7 +17,6 @@
     <string name="test_updating_a_view">Test updating a view</string>
     <string name="ndrawer">ATM Locator</string>
 
-
     <string name="list">
         <item>GTB</item>
         <item>GTB</item>
@@ -37,6 +36,22 @@
         <item>About Us</item>
     </string-array>
 
+    <string name="area">
+        <item>Ikeja</item>
+        <item>Berger</item>
+        <item>Yaba</item>
+        <item>Somolu</item>
+        <item>Magodo</item>
+    </string>
+    <string name="bankname">
+       <item>GTB</item>
+        <item>GTB</item>
+        <item>First Bank</item>
+        <item>Access</item>
+        <item>Zenith</item>
+        <item>Sterling</item>
+        <item>Skye</item>
+    </string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
 </resources>

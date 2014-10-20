@@ -32,16 +32,12 @@
                 <action android:name="com.atbtechsoft.adewumi.atmlocator.HomeScreen" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>-->
-
          </activity>
 
         <activity
             android:name=".ViewAtmDetails"
             android:label="Atm details">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
 
          <activity
@@ -63,6 +59,13 @@
                 android:label="Help">
 
         </activity>
+        <activity android:name=".SuggestAtm"
+                android:label="Suggest ATM">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
        <!-- <activity android:name=".spinner"
             android:label="practising"></activity>-->
@@ -71,15 +74,7 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-
-        <!--<<activity android:name=".SearchableActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.SEARCH" />
-            </intent-filter>
-            meta-data android:name="android.app.searchable"
-                android:resource="@xml/searchable"/>
-        </activity>-->
-        <meta-data
+         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyB9lw30VrhcCUaKqhwum59Fa-47Ko5y9sM"/>
     </application>
