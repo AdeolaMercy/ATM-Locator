@@ -9,7 +9,8 @@
         app:showAsAction="always"/>
     <item
         android:id="@+id/action_help"
-        android:icon="@drawable/ic_action_help"
-        android:title="Help"/>
+        android:icon="@drawable/help"
+        android:title="Help"
+        app:showAsAction="always"/>
 
 </menu>
