@@ -2,6 +2,78 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_margin="10sp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="ATM details"
+        android:layout_marginBottom="5sp"
+        android:textSize="25dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="First Bank"
+        android:layout_marginLeft="5sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="12,CMD Road,Magodo Road,Lagos"
+        android:layout_marginLeft="5sp"
+        android:layout_marginBottom="5sp"/>
+    <View
+        android:layout_height="1dp"
+        android:layout_width="match_parent"
+        android:background="#c0c0c0"
+        android:layout_marginBottom="5sp"/>
+    <TextView
+        android:id="@+id/getdirection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Get Direction"
+        android:layout_marginBottom="5sp"
+        android:onClick="getdirect"/>
+    <View
+        android:layout_height="1dp"
+        android:layout_width="match_parent"
+        android:background="#c0c0c0"
+        android:layout_marginBottom="5sp"/>
+    <TextView
+        android:id="@+id/viewonmap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="View on Map"
+        android:layout_marginBottom="5sp"
+        android:onClick="viewmap"/>
+    <View
+        android:layout_height="1dp"
+        android:layout_width="match_parent"
+        android:background="#c0c0c0"
+        android:layout_marginBottom="5sp"/>
+    <TextView
+        android:id="@+id/seereview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="See Reviews"
+        android:layout_marginBottom="5sp"
+        android:onClick="seereviews"/>
+    <View
+        android:layout_height="1dp"
+        android:layout_width="match_parent"
+        android:background="#c0c0c0"
+        android:layout_marginBottom="5sp"/>
+    <TextView
+        android:id="@+id/postreview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Post Review"
+        android:layout_marginBottom="5sp"
+        android:onClick="postreviews"/>
+    <View
+        android:layout_height="1dp"
+        android:layout_width="match_parent"
+        android:background="#c0c0c0"
+        android:layout_marginBottom="5sp"/>
 
 </LinearLayout>

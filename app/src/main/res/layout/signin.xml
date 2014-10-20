@@ -31,11 +31,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="forgot password?"
+        android:onClick="link"
         android:layout_marginTop="20sp"
         android:textColorLink="@color/common_action_bar_splitter"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sign in"
-        android:layout_gravity="end"/>
+        android:layout_gravity="end"
+        android:onClick="send signin"/>
 </LinearLayout>

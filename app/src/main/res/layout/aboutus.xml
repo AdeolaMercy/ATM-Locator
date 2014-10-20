@@ -81,15 +81,16 @@
         android:layout_marginTop="5sp"
         android:layout_marginBottom="5sp">
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-       />
+        android:layout_width="19dp"
+        android:layout_height="20dp"
+        android:src="@drawable/recommend"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Recommend"
         android:layout_marginBottom="5sp"
-        android:layout_marginTop="5sp"/>
+        android:layout_marginTop="5sp"
+        android:layout_marginLeft="10sp"/>
     </LinearLayout>
     <View
         android:layout_height="1dp"
