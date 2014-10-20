@@ -6,10 +6,11 @@
     <string name="action_search">Search</string>
     <string name="text1">ATMs nearby</string>
     <string name="sign_up">Sign up</string>
+    <string name="sign_in">Sign in</string>
     <string name="email">Type in your email</string>
     <string name="password">Type in password</string>
     <string name="button_text">Sign up</string>
-    <string name="text2">Sign in using</string>
+    <string name="text2">or sign up with:</string>
     <string name="button_search">Search</string>
     <string name="action_cancel">Cancel</string>
     <string name="action_tick">Add</string>

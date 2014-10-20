@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.GoogleMap;
@@ -100,12 +101,16 @@ public class HomeScreen extends Activity {
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView parent, View view, int position, long id) {
-            selectItem(position);
+
         }
+        /*public void onItemClick(AdapterView parent, View view, int position, long id) {
+            Toast.makeText(HomeScreen.this,((TextView)view).getText(),Toast.LENGTH_LONG).show();
+            mDrawerLayout.closeDrawer(drawerList);
+        }*/
     }
 
-    private void selectItem(int position) {
-        /*Fragment fragment;
+   /* private void selectItem(int position) {
+        Fragment fragment;
         fragment = new OldHomeScreen.PlanetFragment();
         Bundle args = new Bundle();
         args.putInt(OldHomeScreen.PlanetFragment.ARG_PLANET_NUMBER, position);
@@ -115,9 +120,9 @@ public class HomeScreen extends Activity {
         fragmentManager = getFragmentManager();
         int commit = fragmentManager.beginTransaction()
                 .replace(R.id.content_frame, fragment)
-                .commit();*/
+                .commit();
 
-    }
+    }*/
     /*@Override
    *//* public void setTitle(CharSequence title) {
         mTitle = title;
