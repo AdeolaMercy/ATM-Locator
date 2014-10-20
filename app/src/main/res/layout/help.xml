@@ -10,7 +10,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Basic Help"
-        android:textSize="20dp"/>
+        android:textSize="20dp"
+        android:clickable="true"/>
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -21,7 +22,8 @@
         android:layout_height="wrap_content"
         android:hint="ATM Details"
         android:layout_marginTop="5sp"
-        android:textSize="20dp"/>
+        android:textSize="20dp"
+        android:clickable="true"/>
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -32,7 +34,8 @@
         android:layout_height="wrap_content"
         android:hint="Add Reviews"
         android:layout_marginTop="5sp"
-        android:textSize="20dp"/>
+        android:textSize="20dp"
+        android:clickable="true"/>
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -43,7 +46,8 @@
         android:layout_height="wrap_content"
         android:hint="Notification"
         android:layout_marginTop="5sp"
-        android:textSize="20dp"/>
+        android:textSize="20dp"
+        android:clickable="true"/>
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -54,7 +58,8 @@
         android:layout_height="wrap_content"
         android:hint="See Reviews"
         android:layout_marginTop="5sp"
-        android:textSize="20dp"/>
+        android:textSize="20dp"
+        android:clickable="true"/>
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -65,7 +70,8 @@
         android:layout_height="wrap_content"
         android:hint="Search"
         android:layout_marginTop="5sp"
-        android:textSize="20dp"/>
+        android:textSize="20dp"
+        android:clickable="true"/>
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -76,7 +82,8 @@
         android:layout_height="wrap_content"
         android:hint="Sign in/Sign up"
         android:layout_marginTop="5sp"
-        android:textSize="20dp"/>
+        android:textSize="20dp"
+        android:clickable="true"/>
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
@@ -87,7 +94,8 @@
         android:layout_height="wrap_content"
         android:hint="Suggest ATM"
         android:layout_marginTop="5sp"
-        android:textSize="20dp"/>
+        android:textSize="20dp"
+        android:clickable="true"/>
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"

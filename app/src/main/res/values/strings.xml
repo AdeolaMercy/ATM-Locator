@@ -33,6 +33,8 @@
         <item>Suggest ATMs</item>
         <item>Reviews</item>
         <item>Feedback</item>
+        <item>Help</item>
+        <item>About Us</item>
     </string-array>
 
     <string name="drawer_open">Open navigation drawer</string>

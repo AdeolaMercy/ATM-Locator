@@ -38,8 +38,11 @@
         <activity
             android:name=".ViewAtmDetails"
             android:label="Atm details">
-
-            </activity>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
          <activity
             android:name=".SignUp"
@@ -58,10 +61,7 @@
                   android:label="About Us"></activity>
         <activity android:name=".Help"
                 android:label="Help">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
 
        <!-- <activity android:name=".spinner"
