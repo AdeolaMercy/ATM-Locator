@@ -30,10 +30,12 @@
         <item>Sign up</item>
         <item>Notification</item>
         <item>Suggest ATMs</item>
+        <item>View ATM Details</item>
+        <item>About Us</item>
         <item>Reviews</item>
         <item>Feedback</item>
         <item>Help</item>
-        <item>About Us</item>
+
     </string-array>
 
     <string name="area">

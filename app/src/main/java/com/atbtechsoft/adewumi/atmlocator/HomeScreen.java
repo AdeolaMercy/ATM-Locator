@@ -101,7 +101,8 @@ public class HomeScreen extends Activity {
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView parent, View view, int position, long id) {
-
+            selectItem(position);
+            mDrawerLayout.closeDrawer(drawerList);
         }
         /*public void onItemClick(AdapterView parent, View view, int position, long id) {
             Toast.makeText(HomeScreen.this,((TextView)view).getText(),Toast.LENGTH_LONG).show();
@@ -109,8 +110,37 @@ public class HomeScreen extends Activity {
         }*/
     }
 
-   /* private void selectItem(int position) {
-        Fragment fragment;
+    private void selectItem(int position) {
+        switch(position) {
+            case 0:
+                Intent intent = new Intent(this, SignUp.class);
+                startActivity(intent);
+                finish();
+                return;
+            case 1:
+                Intent notifyIntent = new Intent(this, Notification.class);
+                startActivity(notifyIntent);
+                finish();
+                return;
+            case 2:
+                Intent suggestIntent = new Intent(this, SuggestAtm.class);
+                startActivity(suggestIntent);
+                finish();
+                return;
+            case 3:
+                Intent viewIntent = new Intent(this,ViewAtmDetails.class);
+                startActivity(viewIntent);
+                finish();
+                return;
+            case 4:
+                Intent aboutIntent = new Intent(this,AboutUs.class);
+                startActivity(aboutIntent);
+                finish();
+                return;
+        }
+     }
+
+   /*     Fragment fragment;
         fragment = new OldHomeScreen.PlanetFragment();
         Bundle args = new Bundle();
         args.putInt(OldHomeScreen.PlanetFragment.ARG_PLANET_NUMBER, position);
@@ -122,7 +152,7 @@ public class HomeScreen extends Activity {
                 .replace(R.id.content_frame, fragment)
                 .commit();
 
-    }*/
+    */
     /*@Override
    *//* public void setTitle(CharSequence title) {
         mTitle = title;
@@ -146,10 +176,10 @@ public class HomeScreen extends Activity {
             Intent settingsIntent = new Intent(this,Setting.class);
             startActivity(settingsIntent);
         }
-        else if(id==R.id.action_aboutUs){
+        /*else if(id==R.id.action_aboutUs){
             Intent aboutIntent = new Intent(this,AboutUs.class);
             startActivity(aboutIntent);
-        }
+        }*/
         if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }

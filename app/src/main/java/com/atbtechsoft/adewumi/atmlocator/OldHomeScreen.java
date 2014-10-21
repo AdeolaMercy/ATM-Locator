@@ -137,10 +137,10 @@ public class OldHomeScreen extends ActionBarActivity {
             Intent settingsIntent = new Intent(this,Setting.class);
             startActivity(settingsIntent);
         }
-        else if(id==R.id.action_aboutUs){
+        /*else if(id==R.id.action_aboutUs){
             Intent aboutIntent = new Intent(this,AboutUs.class);
             startActivity(aboutIntent);
-        }
+        }*/
         else if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
