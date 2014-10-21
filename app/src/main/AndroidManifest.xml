@@ -28,6 +28,10 @@
         </activity>
         <activity android:name=".HomeScreen"
                   android:label="@string/ndrawer">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
             <!--<intent-filter>
                 <action android:name="com.atbtechsoft.adewumi.atmlocator.HomeScreen" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -61,10 +65,7 @@
         </activity>
         <activity android:name=".SuggestAtm"
                 android:label="Suggest ATM">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
 
         <activity android:name=".Notification"

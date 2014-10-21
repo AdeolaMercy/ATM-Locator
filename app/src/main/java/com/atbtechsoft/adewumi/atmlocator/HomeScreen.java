@@ -1,8 +1,12 @@
 package com.atbtechsoft.adewumi.atmlocator;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
@@ -31,6 +35,7 @@ public class HomeScreen extends Activity {
     private CharSequence mTitle;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private GoogleMap mMap;
+    private Boolean authenticate = false;
     static final LatLng testing = new LatLng(6.62 , 3.47);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,11 +69,35 @@ public class HomeScreen extends Activity {
             if(mMap == null){
                 mMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
             }
-            mMap.getMyLocation();
+            mMap.setMyLocationEnabled(true);
         }
         catch (Exception e) {
         e.printStackTrace();
         }
+        LocationManager locationManager = (LocationManager)
+                this.getSystemService(Context.LOCATION_SERVICE);
+        LocationListener locationListener = new LocationListener() {
+            @Override
+            public void onLocationChanged(Location location) {
+
+            }
+
+            @Override
+            public void onStatusChanged(String provider, int status, Bundle extras) {
+
+            }
+
+            @Override
+            public void onProviderEnabled(String provider) {
+
+            }
+
+            @Override
+            public void onProviderDisabled(String provider) {
+
+            }
+        };
+        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,0,0,locationListener);
         /*MapFragment mMapFragment = MapFragment.newInstance();
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
         fragmentTransaction.add(R.id.my_container, mMapFragment);
@@ -123,9 +152,16 @@ public class HomeScreen extends Activity {
                 finish();
                 return;
             case 2:
-                Intent suggestIntent = new Intent(this, SuggestAtm.class);
-                startActivity(suggestIntent);
-                finish();
+                if (authenticate==true){
+                    Intent suggestIntent = new Intent(this, SuggestAtm.class);
+                    startActivity(suggestIntent);
+                    finish();
+                }
+                else{
+                    Intent signIntent = new Intent(this,SignUp.class);
+                    startActivity(signIntent);
+                    finish();
+                }
                 return;
             case 3:
                 Intent viewIntent = new Intent(this,ViewAtmDetails.class);

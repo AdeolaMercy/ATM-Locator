@@ -18,6 +18,8 @@ public class SuggestAtm extends ActionBarActivity{
        super.onCreate(savedInstanceState);
        setContentView(R.layout.suggestatm);
        getActionBar().setDisplayHomeAsUpEnabled(true);
+
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

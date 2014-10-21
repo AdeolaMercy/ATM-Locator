@@ -13,6 +13,7 @@
         android:layout_marginTop="30dp"
         android:textSize="30sp"/>
     <EditText
+        android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
@@ -21,6 +22,7 @@
         android:layout_marginRight="20sp"/>
 
     <EditText
+        android:id="@+id/emailaddy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
@@ -28,6 +30,7 @@
         android:layout_marginTop="15sp"
         android:layout_marginRight="20sp"/>
     <EditText
+        android:id="@+id/phoneno"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:phoneNumber="true"
@@ -36,6 +39,7 @@
         android:layout_marginRight="20sp"/>
 
     <EditText
+        android:id="@+id/password1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
@@ -52,7 +56,13 @@
         android:textAlignment="textEnd"
         android:layout_gravity="end"
         android:layout_marginRight="20sp"
-        android:onClick="Sign up"/>
+        android:onClick="SignUp"/>
+    <TextView
+        android:id="@+id/displaytext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="30sp"/>
 
     <TextView
         android:id="@+id/text_id"
