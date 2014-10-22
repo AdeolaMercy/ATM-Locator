@@ -35,7 +35,7 @@ public class HomeScreen extends Activity {
     private CharSequence mTitle;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private GoogleMap mMap;
-    private Boolean authenticate = false;
+    protected static boolean authenticate = false;
     static final LatLng testing = new LatLng(6.62 , 3.47);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,6 +138,8 @@ public class HomeScreen extends Activity {
             mDrawerLayout.closeDrawer(drawerList);
         }*/
     }
+
+
 
     private void selectItem(int position) {
         switch(position) {
