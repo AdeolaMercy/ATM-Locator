@@ -9,6 +9,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
@@ -21,28 +22,41 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesClient;
+import com.google.android.gms.location.LocationClient;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 
 /**
  * Created by ADEWUMI on 10/10/2014.
  */
-public class HomeScreen extends Activity {
+public class HomeScreen extends FragmentActivity implements
+        GooglePlayServicesClient.ConnectionCallbacks,
+        GooglePlayServicesClient.OnConnectionFailedListener{
     private String[] listMenu;
     private DrawerLayout mDrawerLayout;
     private ListView drawerList;
     private CharSequence mTitle;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private GoogleMap mMap;
-    protected static boolean authenticate = false;
-    static final LatLng testing = new LatLng(6.62 , 3.47);
+    private boolean authenticate = false;
+    Location location; // location
+    double latitude; // latitude
+    double longitude;
+    private LocationClient mLocationClient;
+    Location mCurrentLocation;
+    LocationRequest mLocationRequest;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
         getActionBar().setDisplayHomeAsUpEnabled(true);
-
+        mLocationClient = new LocationClient(this, this, this);
         //to get list items
         listMenu = getResources().getStringArray(R.array.items);
         //to get list items
@@ -65,56 +79,62 @@ public class HomeScreen extends Activity {
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
         mDrawerLayout.setDrawerShadow(R.drawable.abc_item_background_holo_dark, GravityCompat.START);
-        try{
-            if(mMap == null){
-                mMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
-            }
-            mMap.setMyLocationEnabled(true);
-        }
-        catch (Exception e) {
-        e.printStackTrace();
-        }
-        LocationManager locationManager = (LocationManager)
-                this.getSystemService(Context.LOCATION_SERVICE);
-        LocationListener locationListener = new LocationListener() {
-            @Override
-            public void onLocationChanged(Location location) {
+        mMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
 
-            }
-
-            @Override
-            public void onStatusChanged(String provider, int status, Bundle extras) {
-
-            }
-
-            @Override
-            public void onProviderEnabled(String provider) {
-
-            }
-
-            @Override
-            public void onProviderDisabled(String provider) {
-
-            }
-        };
-        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,0,0,locationListener);
-        /*MapFragment mMapFragment = MapFragment.newInstance();
-        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.my_container, mMapFragment);
-        fragmentTransaction.commit();
-        mMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();*/
-
+           mMap.setMyLocationEnabled(true);
+           mMap.getMyLocation();
 
     }
-       /* private void setUpMapIfNeeded() {
-        if (mMap==null) {
-            mMap = ((MapFragment)getFragmentManager().findFragmentById(R.id.map)).getMap();
-            if (mMap!=null) {
-
-            }
-        }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        // Connect the client.
+        mLocationClient.connect();
     }
-*/
+
+    @Override
+    protected void onStop() {
+        // Disconnecting the client invalidates it.
+        mLocationClient.disconnect();
+        super.onStop();
+    }
+
+    @Override
+    public void onConnected(Bundle dataBundle) {
+        // Display the connection status
+      /*  Toast.makeText(this, "Connected", Toast.LENGTH_SHORT).show();*/
+        mCurrentLocation = mLocationClient.getLastLocation();
+
+        TextView textView = (TextView) findViewById(R.id.tv_location);
+        textView.setText(" " + String.valueOf(mCurrentLocation.getLongitude()
+                + ", " + mCurrentLocation.getLatitude()));
+       /* mLocationClient.requestLocationUpdates(mLocationRequest, (com.google.android.gms.location.LocationListener) locationListener);*/
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
+
+    }
+
+    @Override
+    public void onDisconnected() {
+        // Display the connection status
+        Toast.makeText(this, "Disconnected. Please re-connect.",
+                Toast.LENGTH_SHORT).show();
+    }
+    @Override
+    public void onConnectionFailed(ConnectionResult connectionResult) {
+
+    }
+
+    public void onLocationChanged(Location location) {
+        TextView tvLocation = (TextView) findViewById(R.id.tv_location);
+        latitude = location.getLatitude();
+        longitude = location.getLongitude();
+        LatLng latLng = new LatLng(latitude, longitude);
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
+        tvLocation.setText("Latitude:" +  latitude  + ", Longitude:"+ longitude );
+       }
+
+
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
@@ -139,7 +159,13 @@ public class HomeScreen extends Activity {
         }*/
     }
 
+    public void setStatus(Boolean value){
+        this.authenticate = value;
+    }
 
+    public Boolean getStatus(){
+        return this.authenticate;
+    }
 
     private void selectItem(int position) {
         switch(position) {
@@ -154,7 +180,7 @@ public class HomeScreen extends Activity {
                 finish();
                 return;
             case 2:
-                if (authenticate==true){
+                if (getStatus()){
                     Intent suggestIntent = new Intent(this, SuggestAtm.class);
                     startActivity(suggestIntent);
                     finish();
@@ -178,24 +204,7 @@ public class HomeScreen extends Activity {
         }
      }
 
-   /*     Fragment fragment;
-        fragment = new OldHomeScreen.PlanetFragment();
-        Bundle args = new Bundle();
-        args.putInt(OldHomeScreen.PlanetFragment.ARG_PLANET_NUMBER, position);
-        fragment.setArguments(args);*/
-        //insert fragment by replacing any exisiting fragment
-        /*android.app.FragmentManager fragmentManager;
-        fragmentManager = getFragmentManager();
-        int commit = fragmentManager.beginTransaction()
-                .replace(R.id.content_frame, fragment)
-                .commit();
 
-    */
-    /*@Override
-   *//* public void setTitle(CharSequence title) {
-        mTitle = title;
-        getActionBar().setTitle(mTitle);
-    }*/
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
