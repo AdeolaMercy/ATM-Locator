@@ -50,5 +50,5 @@
         android:inputType="text"
         android:hint="Select State"
         android:layout_marginBottom="20sp"/>
-
+//address format:street number,street name,neighborhood,locality,postal code,city,state,country.
 </LinearLayout>

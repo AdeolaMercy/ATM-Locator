@@ -4,20 +4,25 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.os.Message;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,12 +37,17 @@ import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
+import java.util.logging.Handler;
+
 /**
  * Created by ADEWUMI on 10/10/2014.
  */
 public class HomeScreen extends FragmentActivity implements
         GooglePlayServicesClient.ConnectionCallbacks,
-        GooglePlayServicesClient.OnConnectionFailedListener{
+        GooglePlayServicesClient.OnConnectionFailedListener {
     private String[] listMenu;
     private DrawerLayout mDrawerLayout;
     private ListView drawerList;
@@ -51,6 +61,10 @@ public class HomeScreen extends FragmentActivity implements
     private LocationClient mLocationClient;
     Location mCurrentLocation;
     LocationRequest mLocationRequest;
+    private static TextView display;
+    private Button addy;
+    Context context;
+    Handler handler;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,10 +95,11 @@ public class HomeScreen extends FragmentActivity implements
         mDrawerLayout.setDrawerShadow(R.drawable.abc_item_background_holo_dark, GravityCompat.START);
         mMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
 
-           mMap.setMyLocationEnabled(true);
-           mMap.getMyLocation();
-
+        mMap.setMyLocationEnabled(true);
+        mMap.getMyLocation();
+        display = (TextView) findViewById(R.id.address);
     }
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -106,12 +121,14 @@ public class HomeScreen extends FragmentActivity implements
         mCurrentLocation = mLocationClient.getLastLocation();
 
         TextView textView = (TextView) findViewById(R.id.tv_location);
-        textView.setText(" " + String.valueOf(mCurrentLocation.getLongitude()
-                + ", " + mCurrentLocation.getLatitude()));
+        textView.setText(" " + String.valueOf(mCurrentLocation.getLatitude()
+                + ", " + mCurrentLocation.getLongitude()));
        /* mLocationClient.requestLocationUpdates(mLocationRequest, (com.google.android.gms.location.LocationListener) locationListener);*/
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(17));
 
+        getMyLocationAddress();
     }
+
 
     @Override
     public void onDisconnected() {
@@ -123,6 +140,32 @@ public class HomeScreen extends FragmentActivity implements
     public void onConnectionFailed(ConnectionResult connectionResult) {
 
     }
+
+    public void getMyLocationAddress() {
+        Geocoder geocoder = new Geocoder(this, Locale.ENGLISH);
+        try {
+            //Place latitude and longitude
+            List<Address> addresses = geocoder.getFromLocation(mCurrentLocation.getLatitude(),mCurrentLocation.getLongitude(), 1);
+            if(addresses != null) {
+
+                Address fetchedAddress = addresses.get(0);
+                StringBuilder strAddress = new StringBuilder();
+                for(int i=0; i<fetchedAddress.getMaxAddressLineIndex(); i++) {
+                    strAddress.append(fetchedAddress.getAddressLine(i)).append("\n");
+                }
+               display.setText("you are at: " +strAddress.toString());
+            }
+
+            else
+               display.setText("No location found..!");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            Toast.makeText(getApplicationContext(), "Could not get address..!",
+                    Toast.LENGTH_LONG).show();
+        }
+    }
+
 
     public void onLocationChanged(Location location) {
         TextView tvLocation = (TextView) findViewById(R.id.tv_location);

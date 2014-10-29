@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left|center_horizontal"
             android:layout_weight="5"
-            android:paddingTop="10dp"
+            android:paddingTop="5dp"
             android:text="@string/text1"
             android:textSize="25dp" />
         </LinearLayout>
@@ -39,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="40sp"
+            android:layout_marginTop="30sp"
             android:paddingTop="5dp"
             android:layout_marginLeft="20sp">
             <TextView
@@ -48,16 +48,24 @@
                 android:text="you are here"
                android:layout_marginRight="20sp"/>
             <TextView
-                android:id="@+id/tv_location"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
+            android:id="@+id/tv_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
         </LinearLayout>
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:hint="you are at"
+            android:gravity="left"
+            android:layout_marginLeft="20dp"/>
              <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="we found 1 ATM(s) around you"
-                android:layout_marginTop="60sp"
+                android:layout_marginTop="80sp"
                  android:padding="5dp"
                  android:layout_marginLeft="15dp"/>
         <LinearLayout
@@ -66,6 +74,7 @@
             android:orientation="horizontal"
             android:layout_marginTop="65dp"
             android:gravity="right">
+
             <Switch
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -75,6 +84,7 @@
                 android:textOff="Map"
                 android:layout_gravity="right"
                 android:id="@+id/switch1"/>
+
         </LinearLayout>
         <fragment
             xmlns:android="http://schemas.android.com/apk/res/android"

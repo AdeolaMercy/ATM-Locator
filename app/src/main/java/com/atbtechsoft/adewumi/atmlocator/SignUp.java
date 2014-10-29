@@ -79,8 +79,10 @@ public class SignUp extends ActionBarActivity {
         editor.putString(Password, p);
 
         editor.commit();
-        //HomeScreen home = new HomeScreen();
-        HomeScreen.authenticate = true;
+        HomeScreen home = new HomeScreen();
+        home.setStatus(true);
+        Intent intent = new Intent(this,SuggestAtm.class);
+        startActivity(intent);
 //        name = (EditText)findViewById(R.id.name);
 //        emailaddy = (EditText)findViewById(R.id.emailaddy);
 //        phoneno = (EditText)findViewById(R.id.phoneno);
